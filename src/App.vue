@@ -1,26 +1,64 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <header>
+    <Navbar />
+  </header>
+
+  <main class="main">
+    <Question :isSuccess="isSuccess" :data="questions[questionId]"
+      @update-score="guessedRight => handleAnswer(guessedRight)" @next-question="() => handleNextQuestion()" />
+    <div class="score">Your score: {{ score }}</div>
+  </main>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from './components/navigation/Navbar.vue'
+import Question from './components/main/Question.vue';
+import questions from './data/index';
 
 export default {
-  name: 'App',
+  data() {
+    return {
+      isSuccess: null,
+      score: 0,
+      questionId: 0,
+      questions: []
+    }
+  },
   components: {
-    HelloWorld
+    Navbar,
+    Question
+  },
+  created() {
+    this.questions = questions;
+  },
+  methods: {
+    handleAnswer(guessedRight) {
+      if (guessedRight) {
+        this.score += 5;
+        this.isSuccess = true;
+      } else {
+        this.isSuccess = false;
+      }
+    },
+    handleNextQuestion() {
+      if (this.questionId < this.questions.length - 1) {
+        this.questionId++;
+        this.isSuccess = null;
+      } else {
+        console.log("Final score: ", this.score);
+      }
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.main {
+  width: 75ch;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  padding: 5rem;
+  height: calc(100svh - 5rem);
 }
 </style>
