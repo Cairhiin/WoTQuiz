@@ -6,7 +6,7 @@
   <main class="main">
     <Question v-if="!isFinished" :isSuccess="isSuccess" :data="questions[questionId]" :index="questionId"
       @update-score="guessedRight => handleAnswer(guessedRight)" @next-question="() => handleNextQuestion()" />
-    <Card v-if="isFinished" header="Wheel of Time Trivia score">You scored: {{ score }}</Card>
+    <Card v-if="isFinished" header="Wheel of Time Trivia score">You answered {{ score }} out of 10 correctly!</Card>
   </main>
 </template>
 
@@ -38,7 +38,7 @@ export default {
   methods: {
     handleAnswer(guessedRight) {
       if (guessedRight) {
-        this.score += 5;
+        this.score += 1;
         this.isSuccess = true;
       } else {
         this.isSuccess = false;
