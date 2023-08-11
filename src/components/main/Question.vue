@@ -1,5 +1,5 @@
 <template>
-    <Card v-if="data" :header="data.title" :isSuccess="isSuccess">
+    <Card v-if="data" :header="`Question ${index + 1} of 10: ${data.title}`" :isSuccess="isSuccess">
         <div class="answers">
             <ul v-for="(answer, index) in data.answers" :key="index">
                 <li :class="`answer ${selectedId !== answer.id ? '' : isSuccess ? 'right' : 'wrong'}`"
@@ -32,7 +32,8 @@ export default {
     },
     props: {
         data: Object,
-        isSuccess: Boolean
+        isSuccess: Boolean,
+        index: Number
     },
     methods: {
         selectAnswer(id) {

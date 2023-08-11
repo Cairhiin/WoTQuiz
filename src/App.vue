@@ -4,7 +4,7 @@
   </header>
 
   <main class="main">
-    <Question v-if="!isFinished" :isSuccess="isSuccess" :data="questions[questionId]"
+    <Question v-if="!isFinished" :isSuccess="isSuccess" :data="questions[questionId]" :index="questionId"
       @update-score="guessedRight => handleAnswer(guessedRight)" @next-question="() => handleNextQuestion()" />
     <Card v-if="isFinished" header="Wheel of Time Trivia score">You scored: {{ score }}</Card>
   </main>
@@ -15,6 +15,7 @@ import Navbar from './components/navigation/Navbar.vue';
 import Card from './components/main/Card.vue';
 import Question from './components/main/Question.vue';
 import questions from './data/index';
+import { shuffle } from './util/index';
 
 export default {
   data() {
@@ -32,7 +33,7 @@ export default {
     Question
   },
   created() {
-    this.questions = questions;
+    this.questions = shuffle(questions);
   },
   methods: {
     handleAnswer(guessedRight) {
@@ -44,7 +45,7 @@ export default {
       }
     },
     handleNextQuestion() {
-      if (this.questionId < this.questions.length - 1) {
+      if (this.questionId < 9) {
         this.questionId++;
         this.isSuccess = null;
       } else {
