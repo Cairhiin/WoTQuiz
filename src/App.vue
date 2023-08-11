@@ -6,12 +6,13 @@
   <main class="main">
     <Question v-if="!isFinished" :isSuccess="isSuccess" :data="questions[questionId]"
       @update-score="guessedRight => handleAnswer(guessedRight)" @next-question="() => handleNextQuestion()" />
-    <div v-if="isFinished" class="score">You scored: {{ score }}</div>
+    <Card v-if="isFinished" header="Wheel of Time Trivia score">You scored: {{ score }}</Card>
   </main>
 </template>
 
 <script>
-import Navbar from './components/navigation/Navbar.vue'
+import Navbar from './components/navigation/Navbar.vue';
+import Card from './components/main/Card.vue';
 import Question from './components/main/Question.vue';
 import questions from './data/index';
 
@@ -26,6 +27,7 @@ export default {
     }
   },
   components: {
+    Card,
     Navbar,
     Question
   },

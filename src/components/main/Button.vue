@@ -29,17 +29,34 @@ button {
     border-radius: 2px;
     font-weight: 700;
     text-transform: capitalize;
-}
-
-button:hover,
-button:focus {
-    background-position: 200% 100%;
-    transition: background-position 300ms ease-in;
+    position: relative;
+    isolation: isolate;
     cursor: pointer;
 }
 
+button::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    transition: opacity 0.5s ease-in;
+    opacity: 0;
+}
+
+button:hover::before,
+button:focus::before {
+    opacity: 1;
+}
+
+button.primary::before {
+    background-image: linear-gradient(90deg, blueviolet, skyblue);
+}
+
 .primary {
-    background: linear-gradient(90deg, skyblue, blueviolet);
+    background-image: linear-gradient(90deg, skyblue, blueviolet);
     color: white;
 }
 
