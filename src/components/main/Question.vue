@@ -8,7 +8,10 @@
                 </li>
             </ul>
         </div>
-        <Button v-if="selectedId !== null" :onClick="handleNextQuestion" variant="primary" size="small">NEXT</Button>
+        <div class="button-bar">
+            <Button v-if="selectedId !== null" :onClick="handleNextQuestion" variant="primary" size="small">NEXT</Button>
+        </div>
+
     </Card>
 </template>
 
@@ -49,8 +52,20 @@ export default {
 </script>
 
 <style scoped>
+.button-bar {
+    margin-block: 1rem;
+}
+
 .answers>ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.answers>ul>li {
+    padding: 0.5rem;
+    border-radius: 5px;
+    position: relative;
 }
 
 .answers .answer:hover {
@@ -59,10 +74,26 @@ export default {
 }
 
 .right {
-    background: green;
+    border: 2px solid green;
+}
+
+.right::after {
+    content: 'Correct';
+    position: absolute;
+    right: 1rem;
+    text-transform: uppercase;
+    color: green;
 }
 
 .wrong {
-    background-color: red;
+    border: 2px solid red;
+}
+
+.wrong::after {
+    content: 'Wrong';
+    position: absolute;
+    right: 1rem;
+    text-transform: uppercase;
+    color: red;
 }
 </style>
