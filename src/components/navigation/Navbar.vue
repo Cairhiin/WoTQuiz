@@ -52,7 +52,7 @@ export default {
 <style scoped>
 .nav {
     background-color: var(--color-background);
-    padding-block: 1rem;
+    padding-block: 0.25rem;
     padding-inline: 2rem;
     display: flex;
     justify-content: space-between;
@@ -65,6 +65,9 @@ export default {
 h1 {
     text-transform: uppercase;
     font-weight: 700;
+    background: linear-gradient(90deg, aqua, lightblue, cornflowerblue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .theme-slider {

@@ -65,8 +65,8 @@ export default {
 
 .answers>ul>li {
     padding: 0.5rem;
-    border-radius: 5px;
     position: relative;
+    border-radius: 4px;
 }
 
 .answers .answer:hover {

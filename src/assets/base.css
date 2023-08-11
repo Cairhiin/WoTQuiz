@@ -3,9 +3,9 @@
   --color-dark-300: hsl(0, 0%, 10%);
   --color-dark-400: hsl(0, 0%, 20%);
   --color-dark-500: hsl(0, 0%, 30%);
-  --color-light-400: hsl(187, 80%, 98%);
+  --color-light-400: hsl(185, 100%, 95%);
   --color-light-500: hsl(187, 80%, 88%);
-  --color-light-600: hsl(187, 80%, 78%);
+  --color-light-600: hsl(187, 80%, 82%);
 
   --color-background: var(--color-light-400);
   --color-text: var(--color-light-400);
@@ -55,10 +55,31 @@ body {
   line-height: 1.5;
   position: relative;
   opacity: 0.8;
+  font-family: "Inter", sans-serif;
+}
+
+body::before {
+  content: "";
+  opacity: 0.15;
+  width: 100%;
+  background: url("./wot.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 h1 {
-  font-size: var(--step-3);
+  font-size: var(--step-4);
 }
 
 h2 {

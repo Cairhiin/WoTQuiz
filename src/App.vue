@@ -64,18 +64,4 @@ export default {
   place-items: center;
   height: calc(100svh - 6rem);
 }
-
-.main::before {
-  content: '';
-  opacity: 0.15;
-  width: 100%;
-  background: url("./assets/wot.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: -1;
-}
 </style>
