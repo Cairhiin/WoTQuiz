@@ -33,7 +33,7 @@ export default {
     Question
   },
   created() {
-    this.questions = shuffle(questions);
+    this.questions = shuffle(questions).slice(0, 10);
   },
   methods: {
     handleAnswer(guessedRight) {
@@ -45,7 +45,7 @@ export default {
       }
     },
     handleNextQuestion() {
-      if (this.questionId < 9) {
+      if (this.questionId < this.questions.length - 1) {
         this.questionId++;
         this.isSuccess = null;
       } else {
