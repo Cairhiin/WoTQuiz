@@ -29,12 +29,20 @@ export default {
                 document.documentElement.style.setProperty('--color-background', 'var(--color-dark-400)');
                 document.documentElement.style.setProperty('--color-text', 'var(--color-light-400)');
                 document.documentElement.style.setProperty('--color-border', 'var(--color-dark-500)');
+                document.documentElement.style.setProperty('--color-background-highlight-1', 'var(--color-dark-300)');
+                document.documentElement.style.setProperty('--color-background-highlight-2', 'var(--color-dark-200)');
+                document.documentElement.style.setProperty('--color-text-highlight-1', 'var(--color-light-500)');
+                document.documentElement.style.setProperty('--color-text-highlight-2', 'var(--color-light-600)');
             }
 
             if (theme === false) {
                 document.documentElement.style.setProperty('--color-background', 'var(--color-light-400)');
                 document.documentElement.style.setProperty('--color-text', 'var(--color-dark-400)');
                 document.documentElement.style.setProperty('--color-border', 'var(--color-light-500)');
+                document.documentElement.style.setProperty('--color-background-highlight-1', 'var(--color-light-500)');
+                document.documentElement.style.setProperty('--color-background-highlight-2', 'var(--color-light-600)');
+                document.documentElement.style.setProperty('--color-text-highlight-1', 'var(--color-dark-300)');
+                document.documentElement.style.setProperty('--color-text-highlight-2', 'var(--color-dark-200)');
             }
         }
     }
